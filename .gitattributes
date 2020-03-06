@@ -1,0 +1,6 @@
+# Basic .gitattributes for a magma repo
+
+# Source files
+# ============
+*.m    text diff=magma
+*.mag  text diff=magma
