@@ -1,13 +1,13 @@
 Description
 --
 
-This repository contains Magma code for computing isogenies between two elliptic curve in characteristic 2.
+This repository contains Magma code for computing isogenies between two elliptic curves in finite of characteristic 2.
 
 
 Prerequisites
 --
 
-An installation of [`magma`](http://magma.maths.usyd.edu.au/magma/)
+An installation of [`magma`](http://magma.maths.usyd.edu.au/magma/).
 
 
 References
@@ -15,4 +15,4 @@ References
 
 This implementation is based on the following work.
 
-* Xavier Caruso, Elie Eid, Reynald Lercier, [Fast Computation of Elliptic Curve Isogenies in Characteristic two](https://arxiv.org/)
+* Xavier Caruso, Elie Eid, Reynald Lercier, [Fast Computation of Elliptic Curve Isogenies in Characteristic two](https://arxiv.org/).
