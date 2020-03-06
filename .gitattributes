@@ -2,5 +2,5 @@
 
 # Source files
 # ============
-*.m    text diff=magma
-*.mag  text diff=magma
+*.m    linguist-language=magma
+*.mag  linguist-language=magma
