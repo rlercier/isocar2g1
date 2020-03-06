@@ -1,7 +1,8 @@
 Description
 --
 
-This repository contains Magma code for computing isogenies between two elliptic curves in finite of characteristic 2.
+This repository contains Magma code for computing isogenies between two
+elliptic curves in finite fields of characteristic 2.
 
 
 Prerequisites
