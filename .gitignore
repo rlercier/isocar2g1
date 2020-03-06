@@ -1,0 +1,4 @@
+# secondary files
+**/*.swp
+**/*~
+**/*.sig
