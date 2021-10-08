@@ -271,17 +271,14 @@ end function;
 
 // Get the Elkies polynomial from the isogeny series
 // -------------------------------------------------
-function PadicToF2Iso(ell, T)
+function PadicToF2Iso(ell, T, FF)
 
-    L := Parent(T); K := BaseRing(L);
-
-    FF, redmap := ResidueClassField(K);
-    Px := PolynomialRing(FF); x := Px.1;
-
-    Lp := ChangeRing(L, FF);
+    L := Parent(T); Lp := ChangeRing(L, FF);
+    Tmod2 := Lp![ FF!ChangeUniverse(Eltseq(Coefficient(T, i)), Integers()) : i in [0..Degree(T)] ];
 
     /* Fast Berlekamp Massey */
-    Num, _ := FastBerlekampMassey(ell+1, Lp!T);
+    Num, _ := FastBerlekampMassey(ell+1, Tmod2);
+    Px :=  Parent(Num); x := Px.1;
 
     /* Square root */
     isq, sqrt := IsSquare(Num div x);
@@ -294,7 +291,7 @@ end function;
 // ----------------------------------------
 
 /* GF(p^n) : n can be changed to some other degree */
-p := 2; n := 1;
+p := 2; n := 200;
 
 /* The starting elliptic curve */
 BK := pAdicField(p, 32); K := BK;
@@ -356,7 +353,7 @@ repeat
 
     // The GF(2^n) solution
     Tm1 := Cputime();
-    elkiespol := PadicToF2Iso(ell, T);
+    elkiespol := PadicToF2Iso(ell, T, FF);
     Tm1 := Cputime(Tm1);
     printf "Reconstruction done in %.2o s\n", Tm1;
 
@@ -365,7 +362,6 @@ repeat
     end if;
 
     // Let us check it
-    Embed(FF, CoefficientRing(elkiespol));
     Tm2 := Cputime();
     DPE := DivisionPolynomial(E, el, elkiespol);
     Tm2 := Cputime(Tm2);
