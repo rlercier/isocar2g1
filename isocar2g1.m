@@ -291,7 +291,7 @@ end function;
 // ----------------------------------------
 
 /* GF(p^n) : n can be changed to some other degree */
-p := 2; n := 200;
+p := 2; n := 1;
 
 /* The starting elliptic curve */
 BK := pAdicField(p, 32); K := BK;
